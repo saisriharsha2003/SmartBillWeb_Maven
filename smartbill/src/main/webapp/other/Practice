@@ -1,0 +1,89 @@
+select * from consumer;
+select * from login;
+select * from admin_login;
+select * from bill;
+select * from complaint;
+
+delete from consumer;
+select * from complaint;
+-- consumer or registration table
+create table consumer (
+		consumer_id bigint primary key,
+		title varchar(20),
+		consumer_name varchar(100),
+		email varchar(50),
+		mobile bigint,
+		gender varchar(20),
+		user_name varchar(50),
+		password varchar(50)
+);
+
+-- login table
+create table login (
+		username varchar(50) primary key,
+		password varchar(50),
+		consumer_id bigint,
+		status varchar(20)
+);
+
+-- admin table
+create table admin_login (
+		username varchar(50) primary key,
+		password varchar(50)
+);
+insert into admin_login values('admin', 'Harsha@2005');
+
+-- bill table
+create table bill (
+		bill_number integer primary key,
+		due_amount double,
+		bill_amount double,
+		due_date varchar(20),
+		penalty double,
+		status varchar(20),
+		consumer_id bigint
+);
+
+-- payment table
+create table payment (
+		transaction_number integer primary key,
+		bill_number integer,
+		paid_amount double,
+		transaction_mode varchar(50),
+		transaction_date varchar(50),
+		consumer_id bigint
+);
+		
+-- complaint table
+create table complaint (
+		complaint_id integer primary key,
+		landmark varchar(50),
+		service varchar(50),
+		category varchar(50),
+		mobile bigint,
+		contact varchar(50),
+		problem varchar(200),
+		address varchar(200),
+		complaint_status varchar(200),
+		consumer_id bigint);
+
+
+alter table bill
+add constraint fk_bill
+foreign key (consumer_id)
+references consumer (consumer_id);
+
+alter table complaint
+add constraint fk_complaint
+foreign key (consumer_id)
+references consumer (consumer_id);
+
+alter table payment
+add constraint fk_payment
+foreign key (bill_number)
+references bill (bill_number);
+
+alter table login
+add constraint fk_login
+foreign key (consumer_id)
+references consumer (consumer_id);

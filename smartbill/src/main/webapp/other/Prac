@@ -1,0 +1,3 @@
+create table bill(bill_number int, due_amount double, payable_amount double, due_date varchar(20), status varchar(20), consumer_id bigint);
+
+select * from bill;

@@ -57,7 +57,7 @@ public class AdminUpdateComplaintServlet extends HttpServlet {
             }
             
             // Redirect to the complaint update page after successful update
-            response.sendRedirect("source/admin_complaint_update.jsp");
+            response.sendRedirect("source/Admin/Complaints/admin_complaint_update.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

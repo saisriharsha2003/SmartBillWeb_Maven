@@ -50,7 +50,7 @@ public class AdminViewConsumersServlet extends HttpServlet {
             session.setAttribute("admin_consumers", h1);
             
             // Redirect to the view consumers page
-            response.sendRedirect("source/admin_view_consumers.jsp");
+            response.sendRedirect("source/Admin/Consumers/admin_view_consumers.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

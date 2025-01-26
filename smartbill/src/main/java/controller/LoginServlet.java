@@ -61,11 +61,12 @@ public class LoginServlet extends HttpServlet {
                         session.setAttribute("consumer_lgname", "Admin");
                         int count = AdminLogic.fetchCountConsumers();
                         session.setAttribute("cons_count", count);
+                        System.out.println(count);
                         HashMap<String, String> mp = new HashMap<>();
                         mp.put("username", uname);
                         mp.put("password", pwd);
                         session.setAttribute("admin_details", mp);
-                        response.sendRedirect("source/admin_home.jsp");
+                        response.sendRedirect("source/Admin/admin_home.jsp");
                     } else {
                         // Invalid admin credentials
                         request.setAttribute("en_username", uname);

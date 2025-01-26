@@ -16,15 +16,13 @@
     <div>
       <div class="hero">
         <nav>
-	          <a href="<%=request.getContextPath()%>/admin_home.jsp">
-	          <img class="logo" src="<%=request.getContextPath()%>/assets/logo.png"></a>
+	          <a href="${pageContext.request.contextPath}/source/Admin/admin_home.jsp"><img class="logo"
+	                src="<%=request.getContextPath()%>/assets/logo.png"></a>
 	          <ul>
-	            <li><a href="${pageContext.request.contextPath}/source/admin_home.jsp">Home</a></li>
+	            <li><a href="${pageContext.request.contextPath}/source/Admin/admin_home.jsp">Home</a></li>
 	            <li><a href="${pageContext.request.contextPath}/AdminViewConsumers">View Consumers</a></li>
-	            	            <li><a href="${pageContext.request.contextPath}/source/admin_addbill.jsp"
->Add Bills</a></li>
-
-	            <li><a href="${pageContext.request.contextPath}/AdminViewBills">View Bills</a></li>	            	            
+	            <li><a href="${pageContext.request.contextPath}/source/Admin/Bills/admin_addbill.jsp">Add Bills</a></li>
+	            <li><a href="${pageContext.request.contextPath}/AdminViewBills">View Bills</a></li>	            
 	            <li><a href="${pageContext.request.contextPath}/AdminViewComplaints">View Complaints</a></li>
 	          </ul>
 	          <img src="<%=request.getContextPath()%>/assets/user.png" class="user-pic" onclick="toggleMenu()">
@@ -35,7 +33,7 @@
 	        		<h2 id="acu_name" style="color:#CCBA78;"></h2>
 	        	</div>
 	        	<hr>
-	        	<a href="${pageContext.request.contextPath}/source/admin_edit_profile.jsp" class="sub-menu-link">
+	        	<a href="${pageContext.request.contextPath}/source/Admin/Profile/admin_edit_profile.jsp" class="sub-menu-link">
 	        		<img src="<%=request.getContextPath()%>/assets/edit.png" style="width: 50px; height: 50px">
 	        		<p>Edit Profile</p>
 	        		<span class="ext">></span>
@@ -81,7 +79,7 @@
           </div>
           <div class="sbutton">
             <button type="submit" id="bButton" style = "cursor:pointer"
-              onclick="window.location='admin_home.jsp';">Back to Home</button>
+              onclick="window.location='${pageContext.request.contextPath}/source/Admin/admin_home.jsp';">Back to Home</button>
           </div>
         </div>
       </div>

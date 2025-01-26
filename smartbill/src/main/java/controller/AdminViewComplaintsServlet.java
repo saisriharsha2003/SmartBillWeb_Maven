@@ -50,7 +50,7 @@ public class AdminViewComplaintsServlet extends HttpServlet {
             session.setAttribute("admin_complaints", h1);
             
             // Redirect to the view complaints page
-            response.sendRedirect("source/admin_view_complaints.jsp");
+            response.sendRedirect("source/Admin/Complaints/admin_view_complaints.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

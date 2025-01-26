@@ -13,42 +13,41 @@
 <body>
     <div class="hero">
         <nav>
-            <a href="${pageContext.request.contextPath}/source/admin_home.jsp"><img class="logo" src="<%=request.getContextPath()%>/assets/logo.png"></a>
-            <ul>
-                <li><a href="${pageContext.request.contextPath}/source/admin_home.jsp">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/AdminViewConsumers">View Consumers</a></li>
-                	            <li><a href="${pageContext.request.contextPath}/source/admin_addbill.jsp"
->Add Bills</a></li>
-
-                <li><a href="${pageContext.request.contextPath}/AdminViewBills">View Bills</a></li>               
-                <li><a href="${pageContext.request.contextPath}/AdminViewComplaints">View Complaints</a></li>
-            </ul>
-            <img src="<%=request.getContextPath()%>/assets/user.png" class="user-pic" onclick="toggleMenu()">
-            <div class="sub-menu-wrap" id="subMenu">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <img src="<%=request.getContextPath()%>/assets/user.png" style="width: 80px; height: 80px">
-                        <h2 id="acu_name" style="color:#CCBA78;"></h2>
-                    </div>
-                    <hr>
-                    <a href="${pageContext.request.contextPath}/source/admin_edit_profile.jsp" class="sub-menu-link">
-                        <img src="<%=request.getContextPath()%>/assets/edit.png" style="width: 50px; height: 50px">
-                        <p>Edit Profile</p>
-                        <span class="ext">></span>
-                    </a>
-                    <a href="<%=request.getContextPath()%>/LogoutServlet" class="sub-menu-link"> 
-                        <img src="<%=request.getContextPath()%>/assets/logout.png" style="width: 50px; height: 50px">
-                        <p>Logout</p>
-                        <span class="ext">></span>
-                    </a>
-                </div>
-            </div>  
-        </nav>
+	          <a href="${pageContext.request.contextPath}/source/Admin/admin_home.jsp"><img class="logo"
+	                src="<%=request.getContextPath()%>/assets/logo.png"></a>
+	          <ul>
+	            <li><a href="${pageContext.request.contextPath}/source/Admin/admin_home.jsp">Home</a></li>
+	            <li><a href="${pageContext.request.contextPath}/AdminViewConsumers">View Consumers</a></li>
+	            <li><a href="${pageContext.request.contextPath}/source/Admin/Bills/admin_addbill.jsp">Add Bills</a></li>
+	            <li><a href="${pageContext.request.contextPath}/AdminViewBills">View Bills</a></li>	            
+	            <li><a href="${pageContext.request.contextPath}/AdminViewComplaints">View Complaints</a></li>
+	          </ul>
+	          <img src="<%=request.getContextPath()%>/assets/user.png" class="user-pic" onclick="toggleMenu()">
+	          <div class="sub-menu-wrap" id="subMenu">
+	       		<div class="sub-menu">
+	        	<div class="user-info">
+	        		<img src="<%=request.getContextPath()%>/assets/user.png" style="width: 80px; height: 80px">
+	        		<h2 id="acu_name" style="color:#CCBA78;"></h2>
+	        	</div>
+	        	<hr>
+	        	<a href="${pageContext.request.contextPath}/source/Admin/Profile/admin_edit_profile.jsp" class="sub-menu-link">
+	        		<img src="<%=request.getContextPath()%>/assets/edit.png" style="width: 50px; height: 50px">
+	        		<p>Edit Profile</p>
+	        		<span class="ext">></span>
+	        	</a>
+	        	<a href="<%=request.getContextPath()%>/LogoutServlet" class="sub-menu-link"> 
+	        		<img src="<%=request.getContextPath()%>/assets/logout.png" style="width: 50px; height: 50px">
+	        		<p>Logout</p>
+	        		<span class="ext">></span>
+	        	</a>
+	       	</div>
+	      	</div>  
+	      </nav>
     </div>
 
     <div class="signup">
     	<% 
-	      		int count = (int)session.getAttribute("cons_count");
+	      		int count = (Integer)session.getAttribute("cons_count");
         		List<HashMap<String, String>> billList = (List<HashMap<String, String>>) session.getAttribute("admin_bills");
 
 	      		if(count>0)
@@ -156,7 +155,7 @@
                 <%
                 if (currentPage > 1) {
                 %>
-                    <a href="admin_view_bills.jsp?page=<%= currentPage - 1 %>">&laquo; Previous</a>
+                    <a href="${pageContext.request.contextPath}/source/Admin/Bills/admin_view_bills.jsp?page=<%= currentPage - 1 %>">&laquo; Previous</a>
                 <%
                 }
                 for (int i = 1; i <= totalPages; i++) {
@@ -166,13 +165,13 @@
                 <%
                     } else {
                 %>
-                    <a href="admin_view_bills.jsp?page=<%= i %>"><%= i %></a>
+                    <a href="${pageContext.request.contextPath}/source/Admin/Bills/admin_view_bills.jsp?page=<%= i %>"><%= i %></a>
                 <%
                     }
                 }
                 if (currentPage < totalPages) {
                 %>
-                    <a href="admin_view_bills.jsp?page=<%= currentPage + 1 %>">Next &raquo;</a>
+                    <a href="${pageContext.request.contextPath}/source/Admin/Bills/admin_view_bills.jsp?page=<%= currentPage + 1 %>">Next &raquo;</a>
                 <%
                 }
                 %>
@@ -193,10 +192,10 @@
             
             <div class="flexcenter">
             	<div class="sbutton" style="width: 100%; padding: 20px; ">
-					<button id="aButton" style="cursor: pointer; " onclick="window.location.href='home.jsp'">Back to Home</button>
+					<button id="aButton" style="cursor: pointer; " onclick="window.location.href='${pageContext.request.contextPath}/source/Admin/admin_home.jsp'">Back to Home</button>
 				</div>
 				<div class="sbutton" style="width: 100% ; padding: 20px;">
-					<button type="submit" id="aButton" style="cursor: pointer; " onclick="window.location.href='admin_addbill.jsp'">Add Bill</button>
+					<button type="submit" id="aButton" style="cursor: pointer; " onclick="window.location.href='${pageContext.request.contextPath}/source/Admin/admin_addbill.jsp'">Add Bill</button>
 				</div>
             </div>
             
@@ -213,7 +212,7 @@
 				</div>
 				<div class="flexcenter">
 					<div class="sbutton" style="width: 100%; padding: 20px;">
-						<button id="aButton" style="cursor: pointer; " onclick="window.location.href='admin_home.jsp'">Back to Home</button>
+						<button id="aButton" style="cursor: pointer; " onclick="window.location.href='${pageContext.request.contextPath}/source/Admin/admin_home.jsp'">Back to Home</button>
 					</div>
 				</div>
 			

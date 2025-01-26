@@ -75,7 +75,7 @@ public class AdminAddBillServlet extends HttpServlet {
                 session.setAttribute("admin_add_bills", h1);
                 
                 // Redirect to the success page
-                response.sendRedirect("source/admin_addbill_success.jsp");
+                response.sendRedirect("source/Admin/Bills/admin_addbill_success.jsp");
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

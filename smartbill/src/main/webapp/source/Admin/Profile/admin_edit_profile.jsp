@@ -26,47 +26,37 @@
 <body>
 
 	<div class="hero">
-		<nav> <a href="<%=request.getContextPath()%>/admin_home.jsp"><img
-			class="logo" src="<%=request.getContextPath()%>/assets/logo.png"></a>
-		<ul>
-			<li><a
-				href="${pageContext.request.contextPath}/source/admin_home.jsp">Home</a></li>
-			<li><a
-				href="${pageContext.request.contextPath}/AdminViewConsumers">View
-					Consumers</a></li>
-			<li><a
-				href="${pageContext.request.contextPath}/source/admin_addbill.jsp">Add
-					Bills</a></li>
-
-			<li><a href="${pageContext.request.contextPath}/AdminViewBills">View
-					Bills</a></li>
-			<li><a
-				href="${pageContext.request.contextPath}/AdminViewComplaints">View
-					Complaints</a></li>
-		</ul>
-		<img src="<%=request.getContextPath()%>/assets/user.png"
-			class="user-pic" onclick="toggleMenu()">
-		<div class="sub-menu-wrap" id="subMenu">
-			<div class="sub-menu">
-				<div class="user-info">
-					<img src="<%=request.getContextPath()%>/assets/user.png"
-						style="width: 80px; height: 80px">
-					<h2 id="acu_name" style="color: #CCBA78;"></h2>
-				</div>
-				<hr>
-				<a href="${pageContext.request.contextPath}/source/admin_edit_profile.jsp" class="sub-menu-link"> <img
-					src="<%=request.getContextPath()%>/assets/edit.png"
-					style="width: 50px; height: 50px">
-					<p>Edit Profile</p> <span class="ext">></span>
-				</a> <a href="<%=request.getContextPath()%>/LogoutServlet"
-					class="sub-menu-link"> <img
-					src="<%=request.getContextPath()%>/assets/logout.png"
-					style="width: 50px; height: 50px">
-					<p>Logout</p> <span class="ext">></span>
-				</a>
-			</div>
-		</div>
-	</nav>
+		<nav>
+	          <a href="<%=request.getContextPath()%>/admin_home.jsp"><img class="logo"
+	                src="<%=request.getContextPath()%>/assets/logo.png"></a>
+	          <ul>
+	            <li><a href="${pageContext.request.contextPath}/source/Admin/admin_home.jsp">Home</a></li>
+	            <li><a href="${pageContext.request.contextPath}/AdminViewConsumers">View Consumers</a></li>
+	            <li><a href="${pageContext.request.contextPath}/source/Admin/Bills/admin_addbill.jsp">Add Bills</a></li>
+	            <li><a href="${pageContext.request.contextPath}/AdminViewBills">View Bills</a></li>	            
+	            <li><a href="${pageContext.request.contextPath}/AdminViewComplaints">View Complaints</a></li>
+	          </ul>
+	          <img src="<%=request.getContextPath()%>/assets/user.png" class="user-pic" onclick="toggleMenu()">
+	          <div class="sub-menu-wrap" id="subMenu">
+	       		<div class="sub-menu">
+	        	<div class="user-info">
+	        		<img src="<%=request.getContextPath()%>/assets/user.png" style="width: 80px; height: 80px">
+	        		<h2 id="acu_name" style="color:#CCBA78;"></h2>
+	        	</div>
+	        	<hr>
+	        	<a href="${pageContext.request.contextPath}/source/Admin/Profile/admin_edit_profile.jsp" class="sub-menu-link">
+	        		<img src="<%=request.getContextPath()%>/assets/edit.png" style="width: 50px; height: 50px">
+	        		<p>Edit Profile</p>
+	        		<span class="ext">></span>
+	        	</a>
+	        	<a href="<%=request.getContextPath()%>/LogoutServlet" class="sub-menu-link"> 
+	        		<img src="<%=request.getContextPath()%>/assets/logout.png" style="width: 50px; height: 50px">
+	        		<p>Logout</p>
+	        		<span class="ext">></span>
+	        	</a>
+	       	</div>
+	      	</div>  
+	      </nav>
 	</div>
 	<div class="signup">
 		<div class="container">
@@ -118,7 +108,7 @@
 	HashMap<String, String> mp = (HashMap<String, String>) session.getAttribute("admin_details");
 	String pwd = mp.get("password");
 	String uname = mp.get("username");
-	System.out.println(uname);
+
 %>
 <script>
 	var name = ' <%=(session.getAttribute("consumer_lgname") != null) ? session.getAttribute("consumer_lgname") : ""%> ' ;

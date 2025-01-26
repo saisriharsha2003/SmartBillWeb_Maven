@@ -54,7 +54,7 @@ public class AdminViewBillsServlet extends HttpServlet {
             session.setAttribute("admin_bills", h1);
             
             // Redirect to the view bills page
-            response.sendRedirect("source/admin_view_bills.jsp");
+            response.sendRedirect("source/Admin/Bills/admin_view_bills.jsp");
         } catch (ClassNotFoundException | SQLException | ParseException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

@@ -59,7 +59,7 @@ public class AdminEditProfileServlet extends HttpServlet {
             session.setAttribute("admin_details", mp);
             
             // Redirect to the admin home page after successful update
-            response.sendRedirect("source/admin_home.jsp");
+            response.sendRedirect("source/Admin/admin_home.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

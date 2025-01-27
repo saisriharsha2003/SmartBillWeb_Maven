@@ -1,10 +1,8 @@
 package controller;
 
 import model.LoginModel;
-import model.RegisterModel;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.HashMap;
 

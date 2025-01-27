@@ -44,17 +44,11 @@ public class PaymentsLogic {
         p2.setInt(1, pm.getBillNumber());
         ResultSet rs = p2.executeQuery();
         
-        double bamt = 0;
         double edamt = 0;
-        String dueDate = "";
         double pen = 0;
-        String estatus = "";
         while (rs.next()) {
-            bamt = rs.getDouble("bill_amount");
             edamt = rs.getDouble("due_amount");
-            dueDate = rs.getString("due_date"); 
             pen = rs.getDouble("penalty");
-            estatus = rs.getString("status");
         }
 
         String nstatus = "";

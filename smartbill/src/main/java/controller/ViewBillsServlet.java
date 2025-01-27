@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
 
 import logic.AdminLogic;
 import logic.BillsLogic;
-import logic.ComplaintsLogic;
 
 /**
  * Servlet implementation class ViewBillsServlet
@@ -57,7 +56,7 @@ public class ViewBillsServlet extends HttpServlet {
             session.setAttribute("view_all_bills", l1);
 
             // Redirect to the view bills page
-            response.sendRedirect("source/view_bills.jsp");
+            response.sendRedirect("source/Consumer/Bills/view_bills.jsp");
         } catch (ClassNotFoundException | SQLException | ParseException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

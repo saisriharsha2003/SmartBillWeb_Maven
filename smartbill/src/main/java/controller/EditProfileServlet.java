@@ -83,7 +83,7 @@ public class EditProfileServlet extends HttpServlet {
                 session.setAttribute("user-details", mp1);
                 
                 // Redirect to the update success page
-                response.sendRedirect("source/update_success.jsp");
+                response.sendRedirect("source/Consumer/Profile/update_success.jsp");
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

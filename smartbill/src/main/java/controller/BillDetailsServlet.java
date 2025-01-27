@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import logic.AdminLogic;
 import logic.BillsLogic;
 import logic.PaymentsLogic;
 
@@ -60,7 +59,7 @@ public class BillDetailsServlet extends HttpServlet {
             session.setAttribute("payment_due_amount", due_amt);
             
             // Redirect to the bill details page
-            response.sendRedirect("source/bill_details.jsp");
+            response.sendRedirect("source/Consumer/Bills/bill_details.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

@@ -54,7 +54,7 @@ public class PayBillServlet extends HttpServlet {
             // Set the bills as a session attribute
             session.setAttribute("view_all_bills", l1);
             // Redirect to the pay bills JSP page
-            response.sendRedirect("source/pay_bills.jsp");
+            response.sendRedirect("source/Consumer/Bills/pay_bills.jsp");
         } catch (ClassNotFoundException | SQLException | ParseException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

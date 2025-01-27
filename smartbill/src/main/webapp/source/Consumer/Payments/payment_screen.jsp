@@ -25,23 +25,23 @@
 <body>
 
 	<div class="hero">
-		<nav> <a href="${pageContext.request.contextPath}/source/home.jsp"><img class="logo"
+		<nav> <a href="${pageContext.request.contextPath}/source/Consumer/home.jsp"><img class="logo"
 			src="${pageContext.request.contextPath}/assets/logo.png"></a>
 		<ul>
-			<li><a href="${pageContext.request.contextPath}/source/home.jsp">Home</a></li>
+			<li><a href="${pageContext.request.contextPath}/source/Consumer/home.jsp">Home</a></li>
 
 			<li class="dropdown"><a href="#" class="dropbtn">Bill</a>
 				<div class="dropdown-content">
 					<a href="${pageContext.request.contextPath}/PayBills">Pay Bills</a> 
 					<a href="${pageContext.request.contextPath}/ViewBills">View Bills</a>
-					<a href="${pageContext.request.contextPath}/source/search_bill.jsp">Search
+					<a href="${pageContext.request.contextPath}/source/Consumer/Bills/search_bill.jsp">Search
 						Bill</a>
 				</div></li>
 
 			<li class="dropdown"><a href="#" class="dropbtn">Complaint</a>
 				<div class="dropdown-content">
-					<a href="${pageContext.request.contextPath}/source/register_complaint.jsp">Register Complaint</a> <a
-						href="${pageContext.request.contextPath}/source/search_complaint.jsp">Search Complaint</a> <a
+					<a href="${pageContext.request.contextPath}/source/Consumer/Complaints/register_complaint.jsp">Register Complaint</a> <a
+						href="${pageContext.request.contextPath}/source/Consumer/Complaints/search_complaint.jsp">Search Complaint</a> <a
 						href="${pageContext.request.contextPath}/ComplaintStatus">Complaint
 						Status</a>
 				</div></li>
@@ -50,7 +50,7 @@
 				<div class="dropdown-content">
 					<a href="${pageContext.request.contextPath}/PaymentHistory">Payments History</a> 
 
-					<a href="${pageContext.request.contextPath}/source/search_payment.jsp">Search Payment Details</a>
+					<a href="${pageContext.request.contextPath}/source/Consumer/Payments/search_payment.jsp">Search Payment Details</a>
 				</div>
 			</li>
 
@@ -64,11 +64,11 @@
 					<h2 id="cu_name" style="color: #CCBA78;"></h2>
 				</div>
 				<hr>
-				<a href="edit_profile.jsp" class="sub-menu-link"> 
+				<a href="${pageContext.request.contextPath}/source/Consumer/Profile/edit_profile.jsp" class="sub-menu-link"> 
 					<img src="<%=request.getContextPath()%>/assets/edit.png" style="width: 50px; height: 50px">
 					<p>Edit Profile</p> <span class="ext">></span>
 				</a> 
-				<a href="delete_profile.jsp" class="sub-menu-link"> 
+				<a href="${pageContext.request.contextPath}/source/Consumer/Profile/delete_profile.jsp" class="sub-menu-link"> 
 					<img src="<%=request.getContextPath()%>/assets/delete.png" style="width: 50px; height: 50px">
 					<p>Delete Account</p> <span class="ext">></span>
 				</a> 
@@ -157,7 +157,7 @@
             
             <div style="display: flex; justify-content:center; margin-top: 10px;">
 	       		<div class="sbutton" style="width:50%; padding-right:10px;">
-	             		<button id="aButton" style="cursor: pointer" onclick="window.location.href='bill_details.jsp'">Back to BillDetails</button>
+	             		<button id="aButton" style="cursor: pointer" onclick="window.location.href='${pageContext.request.contextPath}/source/Consumer/Bills/bill_details.jsp'">Back to BillDetails</button>
 	             </div>
 	        	<div class="sbutton" style="width:50%;">
 	             		<button type="submit" id="aButton" class="sbutton" style="cursor: pointer" >Make Payment</button>

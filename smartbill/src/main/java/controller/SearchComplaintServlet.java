@@ -55,12 +55,12 @@ public class SearchComplaintServlet extends HttpServlet {
                 session.setAttribute("search_complaint_id", scomp);
 
                 // Redirect to the complaint details page
-                response.sendRedirect("source/complaint_details_id.jsp");
+                response.sendRedirect("source/Consumer/Complaints/complaint_details_id.jsp");
             } else {
                 // Set error attributes and forward to the search complaint page if the complaint is not found
                 request.setAttribute("er_comp_id", compid);
                 request.setAttribute("error_msg", "Complaint Details for the above-mentioned complaint ID not found.");
-                request.getRequestDispatcher("source/search_complaint.jsp").forward(request, response);
+                request.getRequestDispatcher("source/Consumer/Complaints/search_complaint.jsp").forward(request, response);
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

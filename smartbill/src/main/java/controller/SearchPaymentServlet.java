@@ -49,7 +49,6 @@ public class SearchPaymentServlet extends HttpServlet {
         try {
             // Check if the transaction exists
             boolean isexist = PaymentsLogic.isTransactionFound(tran_id);
-            System.out.println(isexist + "  " + tran_id);
             
             if (isexist) {
                 // Fetch payment details if the transaction exists
@@ -57,12 +56,12 @@ public class SearchPaymentServlet extends HttpServlet {
                 session.setAttribute("payment_details_id", m1);
 
                 // Redirect to the payment details page
-                response.sendRedirect("source/payment_details_id.jsp");
+                response.sendRedirect("source/Consumer/Payments/payment_details_id.jsp");
             } else {
                 // Set error attributes and forward to the search payment page if the transaction is not found
                 request.setAttribute("er_tranid", tran_id);
                 request.setAttribute("error_msg", "Transaction Details for the above-mentioned transaction number not found.");
-                request.getRequestDispatcher("source/search_payment.jsp").forward(request, response);
+                request.getRequestDispatcher("source/Consumer/Payments/search_payment.jsp").forward(request, response);
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

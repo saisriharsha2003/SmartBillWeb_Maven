@@ -51,7 +51,7 @@ public class DeleteAccountServlet extends HttpServlet {
             // If the deletion is successful, invalidate the session and redirect to the success page
             if (res == 1) {
                 session.invalidate();
-                response.sendRedirect("source/delete_success.jsp");
+                response.sendRedirect("source/Consumer/Profile/delete_success.jsp");
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

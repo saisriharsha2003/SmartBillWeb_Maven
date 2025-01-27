@@ -44,6 +44,6 @@ public class PaymentScreenServlet extends HttpServlet {
         session.setAttribute("billdet_pamount", pay_amount);
         session.setAttribute("billdet_paymode", pay_mode);
         // Redirect to the payment screen JSP page
-        response.sendRedirect("source/payment_screen.jsp");
+        response.sendRedirect("source/Consumer/Payments/payment_screen.jsp");
     }
 }

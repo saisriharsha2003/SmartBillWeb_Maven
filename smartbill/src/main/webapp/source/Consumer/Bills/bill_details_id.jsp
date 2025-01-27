@@ -17,29 +17,29 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="<%=request.getContextPath()%>/assets/icon.png" type="image/icon type">
-    <title>Payment Details</title>
+    <title>Bill Details By BillId</title>
     
   </head>
   <body>
     <div>
       <div class="hero">
-        <nav> <a href="${pageContext.request.contextPath}/source/home.jsp"><img class="logo"
+        <nav> <a href="${pageContext.request.contextPath}/source/Consumer/home.jsp"><img class="logo"
 			src="${pageContext.request.contextPath}/assets/logo.png"></a>
 		<ul>
-			<li><a href="${pageContext.request.contextPath}/source/home.jsp">Home</a></li>
+			<li><a href="${pageContext.request.contextPath}/source/Consumer/home.jsp">Home</a></li>
 
 			<li class="dropdown"><a href="#" class="dropbtn">Bill</a>
 				<div class="dropdown-content">
 					<a href="${pageContext.request.contextPath}/PayBills">Pay Bills</a> 
 					<a href="${pageContext.request.contextPath}/ViewBills">View Bills</a>
-					<a href="${pageContext.request.contextPath}/source/search_bill.jsp">Search
+					<a href="${pageContext.request.contextPath}/source/Consumer/Bills/search_bill.jsp">Search
 						Bill</a>
 				</div></li>
 
 			<li class="dropdown"><a href="#" class="dropbtn">Complaint</a>
 				<div class="dropdown-content">
-					<a href="${pageContext.request.contextPath}/source/register_complaint.jsp">Register Complaint</a> <a
-						href="${pageContext.request.contextPath}/source/search_complaint.jsp">Search Complaint</a> <a
+					<a href="${pageContext.request.contextPath}/source/Consumer/Complaints/register_complaint.jsp">Register Complaint</a> <a
+						href="${pageContext.request.contextPath}/source/Consumer/Complaints/search_complaint.jsp">Search Complaint</a> <a
 						href="${pageContext.request.contextPath}/ComplaintStatus">Complaint
 						Status</a>
 				</div></li>
@@ -48,7 +48,7 @@
 				<div class="dropdown-content">
 					<a href="${pageContext.request.contextPath}/PaymentHistory">Payments History</a> 
 
-					<a href="${pageContext.request.contextPath}/source/search_payment.jsp">Search Payment Details</a>
+					<a href="${pageContext.request.contextPath}/source/Consumer/Payments/search_payment.jsp">Search Payment Details</a>
 				</div>
 			</li>
 
@@ -62,11 +62,11 @@
 					<h2 id="cu_name" style="color: #CCBA78;"></h2>
 				</div>
 				<hr>
-				<a href="edit_profile.jsp" class="sub-menu-link"> 
+				<a href="${pageContext.request.contextPath}/source/Consumer/Profile/edit_profile.jsp" class="sub-menu-link"> 
 					<img src="<%=request.getContextPath()%>/assets/edit.png" style="width: 50px; height: 50px">
 					<p>Edit Profile</p> <span class="ext">></span>
 				</a> 
-				<a href="delete_profile.jsp" class="sub-menu-link"> 
+				<a href="${pageContext.request.contextPath}/source/Consumer/Profile/delete_profile.jsp" class="sub-menu-link"> 
 					<img src="<%=request.getContextPath()%>/assets/delete.png" style="width: 50px; height: 50px">
 					<p>Delete Account</p> <span class="ext">></span>
 				</a> 
@@ -79,95 +79,96 @@
 	</nav>
       </div>
       <div class="signup">
-      <%
-    	HashMap<String, String> m1 = (HashMap<String, String>)session.getAttribute("payment_details_id");
-     
-	  	String p1 = m1.get("tran_no");
-	  	String p2 = m1.get("bill_no");
-	  	String p3 = m1.get("paid_amt");
-	  	String p4 = m1.get("tran_mode");
-	  	String p5 = m1.get("tran_date");
-	  	if(p1!= null)
-	  	{
-	  	
-  
-      %>
         <div class="container">
-          <div class='title' style="font-size: 25px; color: #CCBA78">Your Transaction Details</div>
+          <div class='title' style="font-size: 25px; color: #CCBA78">Your Bill Details</div>
           <div class='details-cont'>
             <table>
+            <%
+            HashMap<String, String> m1 = (HashMap<String, String>)session.getAttribute("search_bill_id");
+    	    if (m1 != null) {
+    	            String status = m1.get("status");
+					String statusClass;
+					if ("unpaid".equalsIgnoreCase(status)) {
+						statusClass = "status-unpaid";
+					} else if ("paid".equalsIgnoreCase(status)) {
+						statusClass = "status-paid";
+					} else if ("overdue".equalsIgnoreCase(status)) {
+						statusClass = "status-overdue";
+					} else {
+						statusClass = "status-unknown";
+					}
+
+            %>
               <tbody>
-                <tr>
-                  <td><span class='cust'> Transaction ID</span></td>
-                  <td><span class='col'>:</span><span class='cust1'
-                      id='tran_id'></span></td>
-                </tr>
                 <tr>
                   <td><span class='cust'> Bill ID </span></td>
                   <td><span class='col'>:</span><span class='cust1'
-                      id='tran_billid'></span></td>
+                      id='scbbillid'></span></td>
                 </tr>
                 <tr>
-                  <td><span class='cust'> Paid Amount </span></td>
+                  <td><span class='cust'> Due Amount </span></td>
                   <td><span class='col'>:</span><span class='cust1'
-                      id='tran_amt'></span></td>
+                      id='scbdamt'></span></td>
                 </tr>
                 <tr>
-                  <td><span class='cust'> Transaction Mode </span></td>
+                  <td><span class='cust'> Bill Amount </span></td>
                   <td><span class='col'>:</span><span class='cust1'
-                      id='tran_mode'></span></td>
+                      id='scbbamt'></span></td>
                 </tr>
                 <tr>
-                  <td><span class='cust'> Transaction Date </span></td>
+                  <td><span class='cust'> Due Date </span></td>
                   <td><span class='col'>:</span><span class='cust1'
-                      id='tran_date'></span></td>
+                      id='scbddate'></span></td>
                 </tr>
-                
+                <tr>
+                  <td><span class='cust'> Penalty </span></td>
+                  <td><span class='col'>:</span><span class='cust1'
+                      id='scbpen'></span></td>
+                </tr>
+                <tr>
+                  <td><span class='cust'> Status </span></td>
+                  <td><span class='col'>:</span><span class= "<%= statusClass %>" style="margin-left: 25px;"
+                      id='scbst'></span></td>
+                </tr>
                 
                 
               </tbody>
+              <%
+                      }
+                  
+              %>
             </table>
           </div>
          
        	<div class="sbutton" style="width:100%;">
-           	<button type="submit" id="bButton" style="cursor:pointer" onclick="window.location='home.jsp';">Back to Home</button>
+           	<button type="submit" id="bButton" style="cursor:pointer" onclick="window.location='${pageContext.request.contextPath}/source/Consumer/home.jsp';">Back to Home</button>
         </div>	
      
           
         </div>
-        <% }else{ %>
-        <div class = "container">
-            <div class="flexcenter" style="text-align: center; align-items: center; gap: 20px;">
-                <img src="<%=request.getContextPath()%>/assets/smile.webp" alt="Delete Emoji" style="height: 70px; width: 70px; border-radius: 100%">
-                <p class="title1" style="font-size: 30px;">No tRANSACTIONS Found!</p>
-            </div>
-            <div class="flexcenter">
-            	<p style="font-size: 20px; font-weight: 600; margin-top: 20px; maring-bottom:10px;">No transactions found for the mentioned transaction number.</p>
-            </div>
-            
-            <div class="flexcenter">
-            	<div class="sbutton" style="width: 100%; padding: 20px; ">
-					<button id="aButton" style="cursor: pointer; " onclick="window.location.href='home.jsp'">Back to Home</button>
-				</div>
-            </div>
-          
-    	</div>
-    	<%} %>
-        
       </div>
     </div>
-   
+    <%
+
+    	String p1 = m1.get("bill_id");
+    	String p2 = m1.get("due_amt");
+    	String p3 = m1.get("bill_amt");
+    	String p4 = m1.get("due_date");
+    	String p5 = m1.get("penalty");
+    	String p6 = m1.get("status");
+    %>
     <script src="<%=request.getContextPath()%>/scripts/script.js"></script>
     <script type="text/javascript">
     	var name = '<%= (session.getAttribute("consumer_lgname") != null) ? session.getAttribute("consumer_lgname") : "" %>';
 		var c6 = document.getElementById("cu_name");
 		if(c6) c6.textContent = name;
 		
-	   var cn1 = document.getElementById("tran_id");
-	   var cn2 = document.getElementById("tran_billid");
-	   var cn3 = document.getElementById("tran_amt");
-	   var cn4 = document.getElementById("tran_mode");  
-	   var cn5 = document.getElementById("tran_date");
+	   var cn1 = document.getElementById("scbbillid");
+	   var cn2 = document.getElementById("scbdamt");
+	   var cn3 = document.getElementById("scbbamt");
+	   var cn4 = document.getElementById("scbddate");  
+	   var cn5 = document.getElementById("scbpen");
+	   var cn6 = document.getElementById("scbst");  
 	
 	   var n1 = "<%= p1 %>";
 	   if (cn1) cn1.textContent = n1;
@@ -175,6 +176,7 @@
 	   if (cn3) cn3.textContent = "<%= p3 %>";
 	   if (cn4) cn4.textContent = "<%= p4 %>";
 	   if (cn5) cn5.textContent = "<%= p5 %>";
+	   if (cn6) cn6.textContent = "<%= p6 %>";
 
     </script>
   </body>

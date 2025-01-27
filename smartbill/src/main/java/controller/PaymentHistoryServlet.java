@@ -50,7 +50,7 @@ public class PaymentHistoryServlet extends HttpServlet {
             // Set the payment details as a session attribute
             session.setAttribute("payment_details_con", mp1);
             // Redirect to the payment history JSP page
-            response.sendRedirect("source/payment_history.jsp");
+            response.sendRedirect("source/Consumer/Payments/payment_history.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

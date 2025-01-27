@@ -57,12 +57,12 @@ public class SearchBillServlet extends HttpServlet {
                 session.setAttribute("search_bill_id", sbill);
 
                 // Redirect to the bill details page
-                response.sendRedirect("source/bill_details_id.jsp");
+                response.sendRedirect("source/Consumer/Bills/bill_details_id.jsp");
             } else {
                 // Set error attributes and forward to the search bill page if the bill is not found
                 request.setAttribute("er_bill_id", bill_id);
                 request.setAttribute("error_msg", "Bill Details for the above-mentioned bill number not found.");
-                request.getRequestDispatcher("source/search_bill.jsp").forward(request, response);
+                request.getRequestDispatcher("source/Consumer/Bills/search_bill.jsp").forward(request, response);
             }
         } catch (ClassNotFoundException | SQLException | ParseException e) {
             e.printStackTrace();

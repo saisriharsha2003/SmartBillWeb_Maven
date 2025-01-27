@@ -61,7 +61,6 @@ public class LoginServlet extends HttpServlet {
                         session.setAttribute("consumer_lgname", "Admin");
                         int count = AdminLogic.fetchCountConsumers();
                         session.setAttribute("cons_count", count);
-                        System.out.println(count);
                         HashMap<String, String> mp = new HashMap<>();
                         mp.put("username", uname);
                         mp.put("password", pwd);
@@ -108,7 +107,7 @@ public class LoginServlet extends HttpServlet {
                             HashMap<String, String> mp = LoginLogic.fetchUserDetails(uname);
                             session.setAttribute("user-details", mp);
                             
-                            response.sendRedirect("source/home.jsp");
+                            response.sendRedirect("source/Consumer/home.jsp");
                         } else {
                             // Invalid consumer credentials
                             request.setAttribute("en_username", uname);

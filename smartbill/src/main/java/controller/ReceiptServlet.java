@@ -48,6 +48,6 @@ public class ReceiptServlet extends HttpServlet {
         session.setAttribute("receipt_number", randomNumber);
 
         // Redirect to the receipt view page
-        response.sendRedirect("source/view_receipt.jsp");
+        response.sendRedirect("source/Consumer/Bills/view_receipt.jsp");
     }
 }

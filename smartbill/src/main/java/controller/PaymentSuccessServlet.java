@@ -85,7 +85,7 @@ public class PaymentSuccessServlet extends HttpServlet {
                 session.setAttribute("payment_details", paymentDetails);
 
                 // Redirect to the payment success page
-                response.sendRedirect("source/payment_success.jsp");
+                response.sendRedirect("source/Consumer/Payments/payment_success.jsp");
             }
         } catch (ClassNotFoundException | SQLException | ParseException e) {
             e.printStackTrace();

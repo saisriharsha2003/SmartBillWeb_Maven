@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -46,7 +45,6 @@ public class ComplaintStatusServlet extends HttpServlet {
         
         // Get the consumer ID from the session
         long conid = Long.parseLong(session.getAttribute("consumer_lgid").toString());
-        System.out.println(conid); // Logging the consumer ID for debugging
         
         try {
             // Fetch all complaints for the consumer and store them in a list
@@ -56,7 +54,7 @@ public class ComplaintStatusServlet extends HttpServlet {
             session.setAttribute("view_all_comp", l1);
             
             // Redirect to the view all complaints page
-            response.sendRedirect("source/view_all_complaints.jsp");
+            response.sendRedirect("source/Consumer/Complaints/view_all_complaints.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "An error occurred while processing your request: " + e.getMessage());

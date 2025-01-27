@@ -78,7 +78,7 @@ public class RegisterComplaintServlet extends HttpServlet {
                 session.setAttribute("complaint-details", mp1);
 
                 // Redirect to success page
-                response.sendRedirect("source/complaint_success.jsp");
+                response.sendRedirect("source/Consumer/Complaints/complaint_success.jsp");
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

@@ -151,11 +151,12 @@ SmartBill ensures transparency and ease of access, simplifying power bill manage
 - MySQL Database  
 
 ### **Steps to Run the Project**  
-1. Clone the repository:  
+1. Clone the repository:
    ```bash
    git clone https://github.com/YOUR_GITHUB_USERNAME/SmartBill.git
    cd SmartBill
-  ```
+  ``
+  
 2. Configure the database in application.properties.
 3. Build the project using Maven:
    ```bash

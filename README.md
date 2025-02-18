@@ -152,22 +152,27 @@ SmartBill ensures transparency and ease of access, simplifying power bill manage
 
 ### **Steps to Run the Project**  
 1. Clone the repository:
+   
    ```bash
    git clone https://github.com/YOUR_GITHUB_USERNAME/SmartBill.git
-   cd SmartBill
-  ``
+   cd smartbill/
+   ```
   
 2. Configure the database in application.properties.
+   
 3. Build the project using Maven:
    ```bash
-   cd smartbill/
    mvn clean compile package
    ```
+   
 4. Deploy the application on a Tomcat server.
+   
    ```bash
    mvn tomcat7:run
    ```
+   
 5. Access the application in your browser.
+   
    ```bash
    http://localhost:8080/smartbill/
    ```

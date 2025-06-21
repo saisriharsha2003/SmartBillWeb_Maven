@@ -112,7 +112,7 @@
 %>
 <script>
 	var name = ' <%=(session.getAttribute("consumer_lgname") != null) ? session.getAttribute("consumer_lgname") : ""%> ' ;
-	var c1 = document.getElementById("cu_name");
+	var c1 = document.getElementById("acu_name");
 	if (c1) c1.textContent = name;
 	
 	var c = document.getElementById("edit-name");

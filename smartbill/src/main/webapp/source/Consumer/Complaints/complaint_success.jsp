@@ -120,12 +120,12 @@
       </div>
       <script src="<%=request.getContextPath()%>/scripts/script.js"></script>
       <%
-	      	HashMap<String, String> mp =(HashMap<String, String>)session.getAttribute("complaint-details");
-		  	String comp_id = mp.get("comp_id");
-		  	String comp_per = mp.get("comp_per");
-		  	String comp_mob = mp.get("comp_mobile");
-		  	String comp_prob = mp.get("comp_problem");
-		  	String comp_add = mp.get("comp_address");
+		HashMap<String, String> mp =(HashMap<String, String>)session.getAttribute("complaint-details");
+		String comp_id = mp.get("comp_id");
+		String comp_per = mp.get("comp_per");
+		String comp_mob = mp.get("comp_mobile");
+		String comp_prob = mp.get("comp_problem");
+		String comp_add = mp.get("comp_address");
 
       %>
 		<script>

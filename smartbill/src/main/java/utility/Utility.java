@@ -15,6 +15,11 @@ public class Utility {
     private static Statement st;
     private static PreparedStatement pst;
 
+    // Common DB credentials
+    private static final String JDBC_URL = "jdbc:mysql://smartbill-mysql:3306/smartbilldb";
+    private static final String USERNAME = "saisriharsha2005";
+    private static final String PASSWORD = "ArjunSai@2005";
+
     /**
      * Gets a {@link Statement} object for executing SQL queries.
      * 
@@ -23,13 +28,8 @@ public class Utility {
      * @throws ClassNotFoundException if the JDBC driver class is not found
      */
     public static Statement getStatement() throws SQLException, ClassNotFoundException {
-
         Class.forName("com.mysql.cj.jdbc.Driver");
-        String jdbcUrl = "jdbc:mysql://localhost:3306/smartbilldb";
-        String username = "saisriharsha2005";
-        String password = "ArjunSai@2005";
-
-        Connection con = DriverManager.getConnection(jdbcUrl, username, password);
+        Connection con = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
         st = con.createStatement();
         return st;
     }
@@ -44,11 +44,7 @@ public class Utility {
      */
     public static PreparedStatement getPreparedStatement(String sql) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        String jdbcUrl = "jdbc:mysql://localhost:3306/smartbilldb";
-        String username = "saisriharsha2005";
-        String password = "ArjunSai@2005";
-
-        Connection con = DriverManager.getConnection(jdbcUrl, username, password);
+        Connection con = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
         pst = con.prepareStatement(sql);
         return pst;
     }
@@ -62,11 +58,6 @@ public class Utility {
      */
     public static Connection getConnection1() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        String jdbcUrl = "jdbc:mysql://localhost:3306/smartbilldb";
-        String username = "saisriharsha2005";
-        String password = "ArjunSai@2005";
-
-        Connection con = DriverManager.getConnection(jdbcUrl, username, password);
-        return con;
+        return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
     }
 }

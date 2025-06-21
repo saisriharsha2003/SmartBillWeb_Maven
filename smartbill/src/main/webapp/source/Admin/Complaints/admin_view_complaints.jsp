@@ -56,6 +56,13 @@
 	      			{
  		
 	      %>
+        <script src="<%=request.getContextPath()%>/scripts/script.js"></script>
+        <script>
+            var name = '<%= (session.getAttribute("consumer_lgname") != null) ? session.getAttribute("consumer_lgname") : "" %>';
+	  		var c6 = document.getElementById("acu_name");
+	  		if(c6) c6.textContent = name;
+        </script>
+
         <div class="container1">
             <div class="title" style="margin-bottom: 20px;">View Complaints</div>
             <div style="display: flex; justify-content: center;">
@@ -137,7 +144,7 @@
 
         </div>
         <% 
-            } else { // No complaints found
+            } else { 
         %>
         <div class="container" style="width: 800px;">
         	<div class="flexcenter" style="text-align: center; align-items: center; gap: 20px;">
@@ -156,7 +163,7 @@
             
         </div>
         <% } 
-        } else { // No consumers found
+        } else { 
         %>
         <div class="container" style="width: 800px;">
 			<div class="flexcenter" style="text-align: center; align-items: center; gap: 20px;">

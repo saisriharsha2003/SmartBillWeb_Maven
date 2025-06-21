@@ -1,18 +1,17 @@
-drop table consumer;
-drop table bill;
-drop table complaint;
-drop table login;
-drop table payment;
+-- drop table consumer;
+-- drop table bill;
+-- drop table complaint;
+-- drop table login;
+-- drop table payment;
 
-select * from consumer;
-select * from bill;
-select * from complaint;
-select * from login;
-select * from payment;
+-- select * from consumer;
+-- select * from bill;
+-- select * from complaint;
+-- select * from login;
+-- select * from payment;
 
-drop table consumer_details;
-select * from consumer_details;
-
+-- drop table consumer_details;
+-- select * from consumer_details;
 create table consumer_details(meter_number varchar(10));
 INSERT INTO consumer_details (meter_number)
 VALUES 

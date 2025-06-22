@@ -7,25 +7,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Provides utility methods for database operations, including obtaining
- * SQL statements, prepared statements, and database connections.
+ * Utility class for managing database connections and statements.
  */
 public class Utility {
 
     private static Statement st;
     private static PreparedStatement pst;
 
-    // Common DB credentials
-    private static final String JDBC_URL = "jdbc:mysql://smartbill-mysql:3306/smartbilldb";
-    private static final String USERNAME = "saisriharsha2005";
-    private static final String PASSWORD = "ArjunSai@2005";
+    // Fetching DB configuration from environment variables (in .env used by Docker)
+    private static final String JDBC_URL = "jdbc:mysql://smartbill-mysql:3306/" + System.getenv("MYSQL_DATABASE");
+    private static final String USERNAME = System.getenv("MYSQL_USER");
+    private static final String PASSWORD = System.getenv("MYSQL_PASSWORD");
 
     /**
-     * Gets a {@link Statement} object for executing SQL queries.
+     * Gets a Statement object for executing SQL queries.
      * 
-     * @return a {@link Statement} object
-     * @throws SQLException if a database access error occurs or the URL is invalid
-     * @throws ClassNotFoundException if the JDBC driver class is not found
+     * @return a Statement object
+     * @throws SQLException
+     * @throws ClassNotFoundException
      */
     public static Statement getStatement() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -35,12 +34,12 @@ public class Utility {
     }
 
     /**
-     * Gets a {@link PreparedStatement} object for executing SQL queries with parameters.
+     * Gets a PreparedStatement object for executing parameterized SQL queries.
      * 
-     * @param sql the SQL query string
-     * @return a {@link PreparedStatement} object
-     * @throws SQLException if a database access error occurs or the SQL string is invalid
-     * @throws ClassNotFoundException if the JDBC driver class is not found
+     * @param sql the SQL query
+     * @return a PreparedStatement object
+     * @throws SQLException
+     * @throws ClassNotFoundException
      */
     public static PreparedStatement getPreparedStatement(String sql) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -50,11 +49,11 @@ public class Utility {
     }
 
     /**
-     * Gets a {@link Connection} object for connecting to the database.
+     * Gets a Connection object for the database.
      * 
-     * @return a {@link Connection} object
-     * @throws ClassNotFoundException if the JDBC driver class is not found
-     * @throws SQLException if a database access error occurs or the URL is invalid
+     * @return a Connection object
+     * @throws SQLException
+     * @throws ClassNotFoundException
      */
     public static Connection getConnection1() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
